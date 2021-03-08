@@ -13,12 +13,12 @@ func sierpinski(p1: Point, p2: Point, p3: Point, level: Int, figure: SVG) {
     if level <= 0 { return }
     
     // draw a triangle using given points
-    draw_triangle(p1: p1, p2: p2, p3: p3)
+    figure.draw_triangle(p1: p1, p2: p2, p3: p3)
     
     // call sierpinski on 3 more triangles
-    sierpinski(p1: p1, p2: mid_point(p1, p2), p3: mid_point(p1, p3), level: level - 1, figure: figure);
-    sierpinski(p1: p2, p2: mid_point(p1, p2), p3: mid_point(p2, p3), level: level - 1, figure: figure);
-    sierpinski(p1: p3, p2: mid_point(p1, p3), p3: mid_point(p2, p3), level: level - 1, figure: figure);
+    sierpinski(p1: p1, p2: midpoint(p1, p2), p3: midpoint(p1, p3), level: level - 1, figure: figure);
+    sierpinski(p1: p2, p2: midpoint(p1, p2), p3: midpoint(p2, p3), level: level - 1, figure: figure);
+    sierpinski(p1: p3, p2: midpoint(p1, p3), p3: midpoint(p2, p3), level: level - 1, figure: figure);
 }
 
 // Start the algorithm off using a 300x300 canvas and its largest triangle
